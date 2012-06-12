@@ -73,7 +73,7 @@ package starling.extensions.s3d
 		public function disposeTextures(textureName:Array):void {
 			var lenght:int = textureName.length;
 			for (var i:int = 0; i < length ; i++ ) {
-				if ( textureDic[textureName[i]]  ) {
+				if ( textureExist(textureName[i])  ) {
 					textureDic[textureName[i]].dispose();
 					delete textureDic[textureName[i]];
 				}

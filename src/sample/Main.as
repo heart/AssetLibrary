@@ -6,6 +6,7 @@ package sample
 	import flash.display.StageAlign;
 	import flash.display.StageScaleMode;
 	import flash.geom.Rectangle;
+	import flash.system.System;
 	import flash.ui.Multitouch;
 	import flash.ui.MultitouchInputMode;
 	import flash.utils.setTimeout;
@@ -21,9 +22,11 @@ package sample
 		{
 			stage.scaleMode = StageScaleMode.NO_SCALE;
 			stage.align = StageAlign.TOP_LEFT;
-		
+			
 			this.addEventListener(Event.ADDED_TO_STAGE , init );
 		}
+		
+	
 		
 		private function init(e:Event):void 
 		{

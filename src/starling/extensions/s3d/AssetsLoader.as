@@ -90,6 +90,7 @@ package starling.extensions.s3d
 		private function loadFinish():void {
 			dispatchEvent(new Event(Event.COMPLETE));
 			textures = null;
+			callBack = null;
 		}
 	}
 }
@@ -100,19 +101,24 @@ import flash.events.Event;
 import flash.utils.ByteArray;
 class LoaderTexture {
 	private var callBack:Function;
+	private var loader:Loader;
 	public var atlasXml:XML;
 	public var textureName:String;
 	public var bitmap:Bitmap;
 	public function loadBytes( byteArray:ByteArray , callBack:Function ):void {
 		this.callBack = callBack;
-		var loader:Loader = new Loader();
+		loader = new Loader();
 		loader.contentLoaderInfo.addEventListener(Event.COMPLETE , loaded );
 		loader.loadBytes(byteArray);
 	}
 	
 	private function loaded(e:Event):void 
 	{
+		loader.contentLoaderInfo.removeEventListener(Event.COMPLETE , loaded );
+		
 		bitmap = e.target.content as Bitmap;
 		callBack(this);
+		
+		loader = null;
 	}
 }
