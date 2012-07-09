@@ -1,10 +1,10 @@
 :user_configuration
 
 :: Path to Flex SDK
-set FLEX_SDK=C:\AIRSdk4.6\
+set FLEX_SDK=C:\FlexSdk4.6_air3.3\
 
 :: Path to Android SDK
-set ANDROID_SDK=C:\AIRSdk4.6\lib\android\bin\
+set ANDROID_SDK=C:\FlexSdk4.6_air3.3\lib\android\bin\
 
 
 :validation

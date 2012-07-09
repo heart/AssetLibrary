@@ -24,19 +24,21 @@ package  sample
 		
 		public function Game() 
 		{
+			
 			AssetsLibrary.initLibrary("Library.xml");
 			
-			AssetsLibrary.prepareTextures(["texture1" , "texture2" ],onComplete);
+			
+			AssetsLibrary.prepareTextures( ["texture1" , "texture2" ]   ,onComplete);
 			
 		}
-		
-	
 		
 		private function onComplete():void 
 		{
 			
 			// Image Texture
 			var texture:Texture = AssetsLibrary.getTexture("texture2") as Texture;
+			
+			
 			img1 = new Image(texture);
 			addChild(img1);
 			
@@ -66,6 +68,7 @@ package  sample
 			//============
 			
 			this.addEventListener(TouchEvent.TOUCH , onTouch );
+			
 		}
 		
 		private function onTouch(e:TouchEvent):void 
@@ -83,7 +86,8 @@ package  sample
 				removeChild(cat4, true);
 				removeChild(img1, true);
 				
-				removeChild(big,true);
+				removeChild(big, true);
+				
 				AssetsLibrary.disposeTextures(["texture1" , "texture2"]);
 			}
 			

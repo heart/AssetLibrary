@@ -62,6 +62,7 @@ package starling.extensions.s3d
 		public function prepareTextures( textureName:Array, onComplete:Function ):void {
 			var loader:AssetsLoader = new AssetsLoader( textureName , onComplete);
 			loader.addEventListener(Event.COMPLETE , loadTextureComplete );
+			loader.startLoadTexture();
 		}
 		private function loadTextureComplete(e:Event):void {
 			var loader:AssetsLoader = e.target as AssetsLoader;
@@ -71,7 +72,7 @@ package starling.extensions.s3d
 			loader.callBack();
 		}
 		public function disposeTextures(textureName:Array):void {
-			var lenght:int = textureName.length;
+			var length:int = textureName.length;
 			for (var i:int = 0; i < length ; i++ ) {
 				if ( textureExist(textureName[i])  ) {
 					textureDic[textureName[i]].dispose();

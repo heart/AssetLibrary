@@ -26,9 +26,9 @@ package starling.extensions.s3d
 		{
 			this.callBack = callBack;
 			this.textureName = textureName;
-			startLoadTexture();
 		}
-		private function startLoadTexture():void {
+		
+		public function startLoadTexture():void {
 			var imageFile:File;
 			var xmlFile:File;
 			var fs:FileStream;
@@ -87,6 +87,7 @@ package starling.extensions.s3d
 				loadFinish();
 			}
 		}
+		
 		private function loadFinish():void {
 			dispatchEvent(new Event(Event.COMPLETE));
 			textures = null;
