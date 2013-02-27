@@ -23,16 +23,30 @@ AIR for iOS instructions
 	- create a new App ID with: name of the project and ID indicated in 'application.xml',
 	- create a new Provisioning Profile: select App ID & registered devices that will be allowed to install the app.
 	
-	Finally you can complete:
-	- IOS_DEV_CERT_FILE: path to your iOS developer 'p12' key (keep safe outside of project)
+	Once you have obtained a .p12 and .mobileprovision file from Apple's Provisioning Portal:
+	- save a copy of your .p12 and .mobileprovision certificates in the 'cert\' folder in your FlashDevelop project. 
+		(make sure to keep an extra copy of these 2 files in a safe place)
+	
+	Finally edit 'bat\SetupApplication.bat' and complete the following lines:
+	
+	- IOS_DEV_CERT_FILE: path to your iOS developer 'p12' key ('cert\' folder, if you have followed the instructions above)
 	- IOS_DEV_CERT_PASS: developer certificate's password
-	    if you don't set it, remove "-storepass %IOS_DEV_CERT_PASS%" from the IOS_SIGNING_OPTIONS,
+		if you don't set it, remove "-storepass %IOS_DEV_CERT_PASS%" from the IOS_SIGNING_OPTIONS,
 		you'll be prompted to type it when packaging.
-	- IOS_PROVISION: the project's Provisioning Profile file (copy in project)
+	- IOS_PROVISION: path to the project's Provisioning Profile file
+	
+	For example:
+	
+	set IOS_DIST_CERT_FILE=cert\iphone_dev.p12
+	set IOS_DEV_CERT_FILE=cert\iphone_dev.p12
+	set IOS_DEV_CERT_PASS=YourPassword
+	set IOS_PROVISION=cert\YourFileName.mobileprovision
 
 
 6. Running/debugging the application on the device:
-
+	
+	Note: if are testing your application for performance, always package for release (see step 7.)
+	
 	6.a. Build/Debug on device
 	- edit 'Run.bat' and change the run target 'goto desktop' by 'goto ios-debug'
 	- build as usual (Ctrl+Enter or F5) to package

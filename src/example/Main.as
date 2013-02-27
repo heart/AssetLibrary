@@ -1,4 +1,4 @@
-package sample
+package example
 {
 	import flash.display.Sprite;
 	import flash.display.StageAlign;
@@ -21,11 +21,12 @@ package sample
 			
 			var viewport:Rectangle = new Rectangle(0, 0, stage.stageWidth , stage.stageHeight);
 			
-			var _starling:Starling = new Starling(Game, stage,viewport);
+			var _starling:Starling = new Starling(Game, stage, viewport);
+			_starling.stage.color = 0x6c6c6c;
 			_starling.stage.stageWidth = 320;
 			_starling.stage.stageHeight = 480;
 			_starling.start();
-			_starling.showStats = true;
+			
 		}
 		
 	}

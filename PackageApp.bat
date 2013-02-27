@@ -47,4 +47,37 @@ if "%C%"=="8" set TARGET=-ad-hoc
 if "%C%"=="9" set TARGET=-app-store
 
 call bat\Packager.bat
+
+if "%PLATFORM%"=="android" goto android-package
+
+:ios-package
+if "%AUTO_INSTALL_IOS%" == "yes" goto ios-install
+echo Now manually install and start application on device
+echo.
+goto end
+
+:ios-install
+echo Installing application for testing on iOS (%DEBUG_IP%)
+echo.
+call adt -installApp -platform ios -package "%OUTPUT%"
+if errorlevel 1 goto installfail
+
+echo Now manually start application on device
+echo.
+goto end
+
+:android-package
+adb devices
+echo.
+echo Installing %OUTPUT% on the device...
+echo.
+adb -d install -r "%OUTPUT%"
+if errorlevel 1 goto installfail
+goto end
+
+:installfail
+echo.
+echo Installing the app on the device failed
+
+:end
 pause

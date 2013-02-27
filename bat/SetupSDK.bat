@@ -1,15 +1,16 @@
 :user_configuration
 
 :: Path to Flex SDK
-set FLEX_SDK=C:\FlexSdk4.6_air3.3\
+set FLEX_SDK=C:\flex_sdk_4.6
+set AUTO_INSTALL_IOS=yes
 
 :: Path to Android SDK
-set ANDROID_SDK=C:\FlexSdk4.6_air3.3\lib\android\bin\
+set ANDROID_SDK=C:\Program Files (x86)\FlashDevelop\Tools\android
 
 
 :validation
 if not exist "%FLEX_SDK%\bin" goto flexsdk
-if not exist "%ANDROID_SDK%\" goto androidsdk
+if not exist "%ANDROID_SDK%\platform-tools" goto androidsdk
 goto succeed
 
 :flexsdk

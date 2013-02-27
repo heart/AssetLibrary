@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<data>
+ 
+	<directory scale="1" path="x1"/>
+	<directory scale="2" path="x2"/>
+ 
+	<image name="texture1" src="assetslib.png" type="image" />
+ 
+</data>

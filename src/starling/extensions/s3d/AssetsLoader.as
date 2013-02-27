@@ -100,12 +100,16 @@ import flash.display.Bitmap;
 import flash.display.Loader;
 import flash.events.Event;
 import flash.utils.ByteArray;
+
 class LoaderTexture {
 	private var callBack:Function;
 	private var loader:Loader;
 	public var atlasXml:XML;
 	public var textureName:String;
 	public var bitmap:Bitmap;
+	
+	public function LoaderTexture() { }
+	
 	public function loadBytes( byteArray:ByteArray , callBack:Function ):void {
 		this.callBack = callBack;
 		loader = new Loader();
